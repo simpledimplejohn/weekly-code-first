@@ -31,20 +31,64 @@ public class TriangleNumbers {
 		int e = 1+2+3+4+5;
 		
 		
-		int times = 500;
-		int sum = 0;
-		for(int i = 1; i <= times; i ++) {
-			sum += i;
-			System.out.println(sum);
-		}
+//		int times = 7;
+//		int sum = 0;
+//		for(int i = 1; i <= times; i ++) {
+//			sum += i;
+//			System.out.println(sum);
+//		}
 		
+
 		
 		// tasks:
 		// algorithm to calculate triangle numbers
 		// algorithm to find number of divisors		
 //		System.out.println("First 7 triangle Numbers");
 //		System.out.println(Arrays.toString(listTriangleNumbers(7)));
+		int testAnswer = 346500;
+		
+//		triangleNumberFactor(100000);
+		
+//		System.out.println("answer is " +countFactors(100));
+		
+		countFactors(testAnswer);
 
+	}
+
+	private static void triangleNumberFactor(int times) {
+		int sum = 0;
+		for(int i = 1; i <= times; i ++) {
+			sum +=i;
+//			System.out.println(sum);
+			int answer = countFactors(sum);
+			if(answer > 0) {
+				System.out.println("10 factors is " + answer);
+				break;
+			}
+		}
+		
+	}
+
+	private static int countFactors(int num) {
+		int count = 0;
+		
+		for(int i = 1; i <= num; i ++) {
+			if(num % i == 0) {
+//				System.out.println("factor is " + i);
+				count ++;
+
+				if(count == 500) {
+//					System.out.println("Number " + i + " Has 6 factors");
+					return count;
+
+				} 
+			}
+		}
+		System.out.println("Number " + num +" has " + count + " factors");
+		return 0;
+		
+
+		
 	}
 
 
