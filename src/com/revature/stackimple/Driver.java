@@ -11,7 +11,6 @@ public class Driver {
 		
 		stack.pop();
 		stack.pop();
-		stack.pop();
 
 	}
 
