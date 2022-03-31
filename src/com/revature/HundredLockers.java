@@ -1,8 +1,6 @@
 package com.revature;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class HundredLockers {
 
@@ -15,7 +13,7 @@ public class HundredLockers {
 		 *   are open?
 		 */
 		
-		int lockers[] = new int[99];
+		int lockers[] = new int[100];
 		
 		// 0-99 100 lockers, closed = 0; open = 1
 		
@@ -24,43 +22,44 @@ public class HundredLockers {
 		for(int i = 0; i < lockers.length; i++) {
 			lockers[i] = 1;
 		}
-		System.out.println(Arrays.toString(lockers));
 		
-		// close every second
-		System.out.println("close every other one");
-		for(int i = 0; i < lockers.length; i = i + 2) {
-			lockers[i] = 0;
-		}
-		System.out.println(Arrays.toString(lockers));
+		printLocker(lockers);
 		
-		System.out.println("toggle every third");
-		for(int i = 0; i <lockers.length; i = i + 3) {
-			if(lockers[i] == 0) {
-				lockers[i] = 1;
-			} else {
-				lockers[i] = 0;
-			}
-		}
-		System.out.println(Arrays.toString(lockers));		
-		
-		processArrays(lockers,100);
-	}
-
-	private static void processArrays(int[] lockers, int amount) {
-		for(int i = 4; i <= amount; i ++ ) {
-			for(int j = 0; j < lockers.length; j = j + i) {
-				if(lockers[j] == 0) {
-					lockers[j] = 1;
-				} else {
-					lockers[j] = 0;
+		// % j == 0 
+		for(int j = 2; j <= 100; j ++) {
+			for(int k =0; k <= 99; k++) {
+				if(k % j == 0) {
+					if(lockers[k] == 1) {
+						lockers[k] = 0;
+					} else {
+						lockers[k] = 1;
+					}
 				}
 			}
+			printLocker(lockers);
 		}
-		System.out.println("final locker");
-		System.out.println(Arrays.toString(lockers));			
+		
 		howManyOpen(lockers);
 		
+		
+		
+		// toggle lockers
+		
+		
+		
+		
 	}
+	
+	private static void printLocker(int[] lockers) {
+		System.out.println(Arrays.toString(lockers));
+	}
+	
+	private static void printlnLockers(int[] lockers) {
+		for(int i = 0; i < lockers.length; i ++) {
+			System.out.println("locker " + i + " is " + lockers[i]);
+		}
+	}
+
 
 	private static void howManyOpen(int[] lockers) {
 		int count = 0;
